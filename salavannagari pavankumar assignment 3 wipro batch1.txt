@@ -1,0 +1,220 @@
+1.what is make file write a program to demonstrate make file?
+
+
+A Makefile is a special file used by the make build automation tool to manage the build process of a project. It specifies how to compile and link the program. 
+The Makefile contains rules, dependencies, and commands to build the target program. 
+It is particularly useful in projects with multiple source files, as it simplifies the build process by automatically determining which pieces of the program need to be recompiled and issuing the commands to compile them.
+
+Example Program to Demonstrate Makefile:
+1.main.c
+2.hello.c
+3.hello.h
+
+program:
+
+// main.c
+#include <stdio.h>
+#include "hello.h"
+
+int main() {
+    hello();
+    return 0;
+}
+
+
+// hello.c
+#include <stdio.h>
+#include "hello.h"
+
+void hello() {
+    printf("Hello, World!\n");
+}
+
+
+// hello.h
+#ifndef HELLO_H
+#define HELLO_H
+
+void hello();
+
+#endif
+
+
+
+2.Write a C program to demonstrate relational, logical and bitwise operators?
+
+
+#include <stdio.h>
+
+int main() {
+    int a = 5;
+    int b = 10;
+    int c = 0;
+
+    // Relational operators
+    printf("Relational Operators:\n");
+    printf("a = %d, b = %d\n", a, b);
+    printf("a < b: %d\n", a < b);  // 1 (true)
+    printf("a > b: %d\n", a > b);  // 0 (false)
+    printf("a == b: %d\n", a == b); // 0 (false)
+    printf("a != b: %d\n", a != b); // 1 (true)
+    printf("a <= b: %d\n", a <= b); // 1 (true)
+    printf("a >= b: %d\n", a >= b); // 0 (false)
+
+    // Logical operators
+    printf("\nLogical Operators:\n");
+    printf("a = %d, b = %d, c = %d\n", a, b, c);
+    printf("a && b: %d\n", a && b);  // 1 (true)
+    printf("a && c: %d\n", a && c);  // 0 (false)
+    printf("a || b: %d\n", a || b);  // 1 (true)
+    printf("a || c: %d\n", a || c);  // 1 (true)
+    printf("!a: %d\n", !a);          // 0 (false)
+    printf("!c: %d\n", !c);          // 1 (true)
+
+    // Bitwise operators
+    int x = 5;  // 0101 in binary
+    int y = 9;  // 1001 in binary
+    printf("\nBitwise Operators:\n");
+    printf("x = %d, y = %d\n", x, y);
+    printf("x & y: %d\n", x & y);  // 0001 (1 in decimal)
+    printf("x | y: %d\n", x | y);  // 1101 (13 in decimal)
+    printf("x ^ y: %d\n", x ^ y);  // 1100 (12 in decimal)
+    printf("~x: %d\n", ~x);        // 11111010 (-6 in decimal)
+    printf("x << 1: %d\n", x << 1); // 1010 (10 in decimal)
+    printf("x >> 1: %d\n", x >> 1); // 0010 (2 in decimal)
+
+    return 0;
+}
+
+
+
+
+3. Explain storage classes with an example?
+
+  Storage classes in C define the scope (visibility), lifetime, and linkage of variables and functions. 
+There are four types of storage classes in C: auto, register, static, and extern.
+
+
+1. auto Storage Class:
+The auto storage class is the default storage class for local variables. Variables declared inside a function are automatically auto unless explicitly specified otherwise.
+
+Example:
+
+#include <stdio.h>
+
+void autoExample() {
+    auto int x = 10;  // 'auto' is optional here
+    printf("Auto variable x = %d\n", x);
+}
+
+int main() {
+    autoExample();
+    return 0;
+}
+
+2. register Storage Class:
+
+The register storage class is used to define local variables that should be stored in a register instead of RAM for faster access.
+ However, modern compilers usually optimize this automatically.
+
+
+example:
+
+#include <stdio.h>
+
+void registerExample() {
+    register int x = 20;
+    printf("Register variable x = %d\n", x);
+}
+
+int main() {
+    registerExample();
+    return 0;
+}
+
+
+3. static Storage Class:
+
+The static storage class extends the lifetime of a variable to the lifetime of the program. For global variables, it limits the scope of the variable to the file in which it is declared. 
+For local variables, it retains their value between function calls.
+
+
+
+Example:
+//static global variable
+#include <stdio.h>
+
+static int globalVar = 30;  // Static global variable
+
+void staticGlobalExample() {
+    printf("Static global variable globalVar = %d\n", globalVar);
+}
+
+int main() {
+    staticGlobalExample();
+    return 0;
+}
+
+//static local variable
+
+#include <stdio.h>
+
+void staticLocalExample() {
+    static int counter = 0;  // Static local variable
+    counter++;
+    printf("Static local variable counter = %d\n", counter);
+}
+
+int main() {
+    staticLocalExample();
+    staticLocalExample();
+    staticLocalExample();
+    return 0;
+}
+
+
+4. extern Storage Class:
+
+The extern storage class is used to declare a global variable or function in another file. It tells the compiler that the variable or function is defined in another file.
+
+File 1: main.c
+
+#include <stdio.h>
+
+// Declaration of the external variable
+extern int externalVar;
+
+void externExample() {
+    printf("Extern variable externalVar = %d\n", externalVar);
+}
+
+int main() {
+    externExample();
+    return 0;
+}
+
+File 2: external.c
+
+// Definition of the external variable
+int externalVar = 40;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

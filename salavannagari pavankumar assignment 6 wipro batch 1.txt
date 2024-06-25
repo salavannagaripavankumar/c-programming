@@ -1,0 +1,196 @@
+//1.Write any five difference between static memory allocation and dynamic memory allocation.
+
+
+Here are five differences between static memory allocation and dynamic memory allocation:
+
+1. Allocation Time
+
+Static Memory Allocation: Memory is allocated at compile-time, which means the memory is allocated when the program is compiled.
+Dynamic Memory Allocation: Memory is allocated at runtime, which means the memory is allocated when the program is executed.
+2. Memory Size
+
+Static Memory Allocation: The size of the memory is fixed and determined at compile-time.
+Dynamic Memory Allocation: The size of the memory can be determined at runtime, and it can be changed dynamically.
+3. Memory Location
+
+Static Memory Allocation: Memory is allocated on the stack or in the data segment, which means the memory location is fixed.
+Dynamic Memory Allocation: Memory is allocated on the heap, which means the memory location can vary.
+4. Memory Deallocation
+
+Static Memory Allocation: Memory is automatically deallocated when the program terminates or when the scope of the variable ends.
+Dynamic Memory Allocation: Memory must be explicitly deallocated by the programmer using functions like free() or delete.
+5. Flexibility
+
+Static Memory Allocation: Less flexible, as the memory size and location are fixed at compile-time.
+Dynamic Memory Allocation: More flexible, as the memory size and location can be changed dynamically at runtime.
+Here is an example in C to illustrate the difference:
+
+
+
+// Static Memory Allocation
+int arr[10]; // Memory is allocated on the stack
+
+// Dynamic Memory Allocation
+int* ptr = malloc(10 * sizeof(int)); // Memory is allocated on the heap
+Note that dynamic memory allocation can lead to memory leaks if not managed properly, while static memory allocation is generally safer but less flexible.
+
+
+
+//2.Write a C program to demonstrate malloc(), calloc(), realloc() and free() using valgrind ?
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // malloc() example
+    int* ptr1 = (int*) malloc(5 * sizeof(int));
+    if (ptr1 == NULL) {
+        printf("Memory not allocated.\n");
+        return -1;
+    }
+    for (int i = 0; i < 5; i++) {
+        ptr1[i] = i * 2;
+    }
+    printf("malloc() example:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", ptr1[i]);
+    }
+    printf("\n");
+
+    // free() example
+    free(ptr1);
+
+    // calloc() example
+    int* ptr2 = (int*) calloc(5, sizeof(int));
+    if (ptr2 == NULL) {
+        printf("Memory not allocated.\n");
+        return -1;
+    }
+    for (int i = 0; i < 5; i++) {
+        ptr2[i] = i * 3;
+    }
+    printf("calloc() example:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", ptr2[i]);
+    }
+    printf("\n");
+
+    // realloc() example
+    ptr2 = (int*) realloc(ptr2, 10 * sizeof(int));
+    if (ptr2 == NULL) {
+        printf("Memory not allocated.\n");
+        return -1;
+    }
+    for (int i = 5; i < 10; i++) {
+        ptr2[i] = i * 4;
+    }
+    printf("realloc() example:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", ptr2[i]);
+    }
+    printf("\n");
+
+    // free() example
+    free(ptr2);
+
+    return 0;
+}
+
+
+
+
+
+3.What is pointer? Explain different types of pointers with programming example?
+
+
+A pointer is a variable that stores the memory address of another variable. In other words, a pointer "points to" the location in memory where a variable is stored. Pointers are used to indirectly access the value stored at the memory address they point to.
+
+Here are different types of pointers with programming examples:
+
+1. Null Pointer
+
+A null pointer is a pointer that does not point to a valid memory location. It is initialized with a null value, typically represented as NULL or 0.
+
+Example:
+
+int* ptr = NULL;
+
+
+2. Wild Pointer
+
+A wild pointer is a pointer that has not been initialized or has been corrupted. It can point to any random memory location, leading to unexpected behavior or crashes.
+
+Example:
+
+int* ptr; // uninitialized pointer
+
+
+3. Dangling Pointer
+
+A dangling pointer is a pointer that points to a memory location that has already been freed or deleted.
+
+Example:
+
+int* ptr = malloc(sizeof(int));
+free(ptr); // ptr is now a dangling pointer
+
+
+4. Void Pointer
+
+A void pointer is a pointer that can point to any data type. It is declared as void* and can be used to store the address of any variable.
+
+Example:
+void* ptr = &x; // x can be any data type
+
+
+5. Function Pointer
+
+A function pointer is a pointer that points to a function. It can be used to call the function indirectly.
+
+Example:
+
+c
+
+int add(int a, int b) { return a + b; }
+
+int (*fp)(int, int) = &add; // fp is a function pointer
+int result = fp(2, 3); // calls the add function
+6. Array Pointer
+
+An array pointer is a pointer that points to the first element of an array.
+
+Example:
+
+int arr[5] = {1, 2, 3, 4, 5};
+int* ptr = arr; // ptr points to the first element of the array
+
+
+7. Pointer to Pointer
+
+A pointer to pointer is a pointer that points to another pointer.
+
+Example:
+
+int x = 10;
+int* ptr1 = &x;
+int** ptr2 = &ptr1; // ptr2 points to ptr1
+
+
+8. Constant Pointer
+
+A constant pointer is a pointer that cannot be changed once it is initialized.
+
+Example:
+
+int x = 10;
+int* const ptr = &x; // ptr cannot be changed
+
+
+9. Pointer to Constant
+
+A pointer to constant is a pointer that points to a constant value.
+
+Example:
+const int x = 10;
+int* ptr = &x; // ptr points to a constant value
+These are some of the common types of pointers in C programming

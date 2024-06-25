@@ -1,0 +1,156 @@
+ Explain basic structure of a c program with an example.
+
+#include<stdio.h> // preprocessor directive to include
+the standard input-output library
+
+         // Global
+Declaration (if any)       
+
+        // Functional
+prototype (optional declaration of function before main)
+
+
+int main() {    //
+main function, Starting point of program
+
+        // variable
+declarations (local to main)
+
+return 0; //return statement indicating the program ended
+successfully
+
+}
+
+// other function can be define here
+
+Example:-
+
+#include <stdio.h>
+int main(){
+printf(“Hello,Everyone..”);
+}
+
+
+ 
+
+
+ 
+
+
+2} What are the different types data types in c programming?
+
+Data types are divided in several parts
+
+Basic data types
+
+
+Int – This data type is used to store integer.
+
+
+char – This data type is used to store single characters.
+
+
+float -  This data
+type is used to store floating point number.
+
+
+double - This data type is used to store double precision,
+floating point number.
+
+
+
+Derived Data Types:-
+
+
+Array – Arrays are used to store a collection of elements
+of  the same data type.
+
+
+Pointer – Pointers are used to store address of another
+variable.
+
+
+Structure – Structures are used to store a collection of
+related data items.
+
+
+Union – Union are used to store different types of data in
+the same memory location.
+
+
+ 
+
+
+3} Define macro. Write a c program to demonstrate user
+defined macro
+
+
+macro – It is a block of a code which will be replaced by
+the value of the macro
+
+        Macro are
+defined using the ‘#define’.
+
+
+
+#include<stdio.h>
+#define PI 3.14159
+#define GREETING "Wipro Training"
+#define SQUARE(x) ((x) * (x))
+#define CIRCLE_AREA(r) (PI * (r) * (r))
+int main()
+{
+printf("%s\n",GREETING);
+printf("Value of PI : %f\n",PI);
+        int number=6;
+printf("Square of %d is %d\n",number,SQUARE(number));
+ double radius=3.0;
+printf("Area of Circle with the radius %lf :
+%.2f\n",radius,CIRCLE_AREA(radius));
+return 0;
+}
+
+
+
+
+4} Write a c program to demonstrate printf(),scanf(),fgets()
+and puts() with an example.
+
+
+#include <stdio.h>
+
+int main() {
+
+    char name[50];
+     int age;
+    // Get user's name
+using fgets()       
+printf("Enter the Name :\n");
+fgets(name,sizeof(name),stdin);
+   // Display user
+input using puts()
+printf("Name :\n");
+        puts(name);
+
+    // Get user's age
+using scanf()
+
+    printf("Enter
+your age: ");
+   
+scanf("%d", &age);
+
+    // Display user
+information using printf()
+
+    printf("\n
+Your details:\n");
+
+    printf("Name:
+%s\n", name);
+    printf("Age:
+%d\n", age);
+
+  return 0;
+
+}

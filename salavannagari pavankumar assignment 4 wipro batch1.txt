@@ -1,0 +1,168 @@
+1. Write a c program to check whether character is uppercase or lowercase?
+
+#include<stdio.h>
+int main()
+{
+        char character;
+        printf("enter the character:\n");
+        scanf("%c",&character);
+        if(character>='A' && character<='Z')
+        {
+                printf("%c is upper case\n",character);
+        }
+        else if(character>='a' && character<='z')
+        {
+                printf("%c is lowercase\n",character);
+        }
+        else{
+                printf("%c is not a character\n",character);
+        }
+        return 0;
+}
+
+2.Write a c program to input week number and print the week day?
+
+
+#include<stdio.h>
+int main()
+{
+        int week_number;
+        printf("enter the week_number:\n");
+        scanf("%d",&week_number);
+        switch(week_number)
+        {
+                case 1:
+                        printf("monday\n");
+                        break;
+                case 2:
+                 printf("tuesday\n");
+                 break;
+                case 3:
+          printf("wednesday\n");
+           break;
+                case 4:
+                          printf("thursday\n");
+                          break;
+                 case 5:
+                         printf("friday\n");
+                         break;
+                 case 6:
+                        printf("satuarday\n");
+                        break;
+                 case 7:
+                        printf("sunday\n");
+                        break;
+                 default:
+                        printf("error!invalid week_number\n");
+                        break;
+        }
+        return 0;
+}
+
+
+3.Write a c program to input electricity unit charges and calculate total electricity bill according to given condition:
+    a. For 1st 50 units, Rs. 0.50/unit
+    b.For next 100 units, Rs.0.75/unit
+    c.For next 100 units, Rs.1.20/unit
+    d.For unit above 250, Rs. 1.50/unit
+    Ab additional surcharge of 20% is added to the bill
+
+
+#include<stdio.h>
+int main()
+{
+        int units;
+        float bill,subcharge,total_bill;
+
+        printf("enter the number of units:\n");
+        scanf("%d",&units);
+        if(units<=50)
+        {
+                bill = units*0.50;
+        }
+        else if(units<=150)
+        {
+                bill= 50*0.50+(units-50)*0.75;
+        }
+        else if(units<=250)
+        {
+                bill = 50*0.50+100*0.75+(units-150)*1.20;
+        }
+        else{
+                bill =50*0.50+100*0.75*100*1.20+(units-250)*1.50;
+        }
+        subcharge = bill*0.2;
+        total_bill =bill+subcharge;
+        printf("total electricity bill :%.3f\n",total_bill);
+       return 0;
+}
+
+
+
+
+
+4. Write a c program, to find first and last digit using loop?
+
+
+#include <stdio.h>
+
+int main() {
+    int num, first_digit, last_digit, temp;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    temp = num;
+
+    // Find last digit
+    last_digit = num % 10;
+
+    // Find first digit
+    while(temp >= 10) {
+        temp = temp / 10;
+    }
+    first_digit = temp;
+
+    printf("First digit: %d\n", first_digit);
+    printf("Last digit: %d\n", last_digit);
+
+    return 0;
+}
+
+
+
+5.Write a c program to convert temperature from Celsius to Fahrenheit.
+
+
+
+#include <stdio.h>
+
+int main() {
+    float celsius, fahrenheit;
+
+    printf("Enter temperature in Celsius: ");
+    scanf("%f", &celsius);
+
+    fahrenheit = (celsius * 9.0 / 5.0) + 32.0;
+
+    printf("%.2f Celsius is equal to %.2f Fahrenheit\n", celsius, fahrenheit);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
